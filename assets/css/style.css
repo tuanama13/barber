@@ -13,6 +13,41 @@ button > .button > .btn-img{
 	width: 150px;
 }
 
-.btn-menu button{
-	margin-right: 6px;
+button > span .menu-text{
+		font-size: 1 rem;
+}
+
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+	button > .button > .btn-img{
+		/*width: 150px;*/s
+	}
+
+	.btn-menu button{
+		margin-right: 2px;
+	}
+
+	button > .btn .btn-lg > span {
+		font-size: 0 rem;
+	}
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+	.carousel .carousel-item img {
+		height: 350px;
+	}
+
+	button > .button > .btn-img img{
+		/*width: 250px;*/
+	}
+
+	.btn-menu button{
+		margin-right: 6px;
+	}
+
+	button > span .menu-text{
+		font-size: 1 rem;
+	}
 }
