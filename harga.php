@@ -1,22 +1,18 @@
 <?php
-	// session_start();
-	// include '../tes.php';
-	// include '../init/db.php';
-	// require '../functions.php';
-	// $sql="";
+	include 'init/db.php';
+	
 	$kode = isset( $_GET['kasir']) ?  $_GET['kasir'] : null;
 
 		if (!empty($kode)) {
-			if ($kode == "dewasa1") {
-				echo '35000';
-			}elseif ($kode == "dewasa2") {
-				echo '30000';
-			}elseif ($kode == "remaja") {
-				echo '20000';
-			}elseif ($kode == "anak") {
-				echo '15000';
-			}elseif($kode == "pil"){
+			if ($kode == "pil") {
 				echo '0';
+			}else{
+				$sql = "SELECT * FROM kategori WHERE id_kategori = '$kode'";
+	            $run_sql = mysqli_query($conn,$sql);
+	            // $row_cnt = mysqli_num_rows($run_sql);
+	            $rows = mysqli_fetch_assoc($run_sql);
+	            $harga = $rows['harga'];
+	            echo $harga;
 			}
 		}else{
 			header("Location: bayar.php");
