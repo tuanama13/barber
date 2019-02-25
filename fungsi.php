@@ -18,6 +18,54 @@
 
 	    return $id_brg_new;
 	}
-	// if (isset($_POST['submit'])) {
-		
-	// }
+	
+	function rupiah($angka){
+	
+		$hasil_rupiah = "Rp " . number_format($angka,0,',','.');
+		return $hasil_rupiah;
+ 
+	}
+
+	function bulan($angka)
+	{
+		$bulan = array (1 =>   'Januari',
+			'Februari',
+			'Maret',
+			'April',
+			'Mei',
+			'Juni',
+			'Juli',
+			'Agustus',
+			'September',
+			'Oktober',
+			'November',
+			'Desember'
+		);
+
+		return $bulan[$angka];
+	}
+
+	function harian()
+	{
+		$hari_ini = date("Y-m-d");
+		include 'init/db.php';
+		$sql = "SELECT SUM(total) as Total FROM transaksi WHERE DATE(tgl_transaksi) = '$hari_ini'";
+	    $row = mysqli_fetch_assoc(mysqli_query($conn,$sql));
+	    // $idmax=$row['maxid'];
+	    $total = $row['Total'];
+
+	    return $total;
+	}
+
+	function bulanan($tahun_ini, $bulan_ini)
+	{
+		// $tahun_ini = date("Y");
+		// $bulan_ini = date("m");
+		include 'init/db.php';
+		$sql = "SELECT SUM(total) as Total FROM transaksi WHERE YEAR(tgl_transaksi)='$tahun_ini' AND MONTH(tgl_transaksi) = '$bulan_ini'";
+	    $row = mysqli_fetch_assoc(mysqli_query($conn,$sql));
+	    // $idmax=$row['maxid'];
+	    $total = $row['Total'];
+
+	    return $total;
+	}

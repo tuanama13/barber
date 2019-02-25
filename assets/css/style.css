@@ -19,7 +19,7 @@ button > span .menu-text{
 
 
 /*Small devices (landscape phones, 576px and up)*/
-@media (min-width: 576px) {
+@media (max-width: 576px) {
 	button > .button > .btn-img{
 		/*width: 150px;*/s
 	}
@@ -31,10 +31,14 @@ button > span .menu-text{
 	button > .btn .btn-lg > span {
 		font-size: 0 rem;
 	}
+
+	.small-box > .inner > h3{
+		font-size: 18px;
+	}
 }
 
 /*Medium devices (tablets, 768px and up)*/
-@media (min-width: 768px) {
+@media (max-width: 768px) {
 	.carousel .carousel-item img {
 		height: 350px;
 	}
