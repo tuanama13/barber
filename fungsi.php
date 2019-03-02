@@ -18,6 +18,24 @@
 
 	    return $id_brg_new;
 	}
+
+	function noPeng()
+	{
+		include 'init/db.php';
+		$sql = "SELECT max(id_pengeluaran) as maxid FROM pengeluaran";
+	    $row = mysqli_fetch_assoc(mysqli_query($conn,$sql));
+	    $idmax=$row['maxid'];
+	    $row = mysqli_num_rows(mysqli_query($conn,$sql));
+	    if ($row<=0) {
+	            $id_pengeluaran="1";
+	        }else{
+	            // $nourut = (int) substr($idmax, 4,7);
+	            // $nourut++;
+	            $id_pengeluaran = $idmax+1;
+	        }
+
+	    return $id_pengeluaran;
+	}
 	
 	function rupiah($angka){
 	
@@ -57,12 +75,37 @@
 	    return $total;
 	}
 
+	function harianP()
+	{
+		$hari_ini = date("Y-m-d");
+		include 'init/db.php';
+		$sql = "SELECT SUM(jumlah) as Total FROM pengeluaran WHERE DATE(tanggal) = '$hari_ini'";
+	    $row = mysqli_fetch_assoc(mysqli_query($conn,$sql));
+	    // $idmax=$row['maxid'];
+	    $total = $row['Total'];
+
+	    return $total;
+	}
+
 	function bulanan($tahun_ini, $bulan_ini)
 	{
 		// $tahun_ini = date("Y");
 		// $bulan_ini = date("m");
 		include 'init/db.php';
 		$sql = "SELECT SUM(total) as Total FROM transaksi WHERE YEAR(tgl_transaksi)='$tahun_ini' AND MONTH(tgl_transaksi) = '$bulan_ini'";
+	    $row = mysqli_fetch_assoc(mysqli_query($conn,$sql));
+	    // $idmax=$row['maxid'];
+	    $total = $row['Total'];
+
+	    return $total;
+	}
+
+	function bulananP($tahun_ini, $bulan_ini)
+	{
+		// $tahun_ini = date("Y");
+		// $bulan_ini = date("m");
+		include 'init/db.php';
+		$sql = "SELECT SUM(jumlah) as Total FROM pengeluaran WHERE YEAR(tanggal)='$tahun_ini' AND MONTH(tanggal) = '$bulan_ini'";
 	    $row = mysqli_fetch_assoc(mysqli_query($conn,$sql));
 	    // $idmax=$row['maxid'];
 	    $total = $row['Total'];

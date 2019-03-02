@@ -80,11 +80,18 @@
                             <option value="ank" >Anak-anak</option> -->
                         </select>
                     </div>
-                    <div class="form-group">                        
-                        <input name="total" id="total" type="number" placeholder="0" class="form-control" readonly>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Rp</span>
+                      </div>
+                      <input name="total" id="total" type="number" placeholder="0" class="form-control" aria-label="Username" aria-describedby="basic-addon1" readonly>
+                     <!--  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"> -->
                     </div>
+                    <!-- <div class="form-group">                        
+                        <input name="total" id="total" type="number" placeholder="0" class="form-control" readonly>
+                    </div> -->
                     <div class="text-center">
-                        <button name="submit" id="btnBayar" type="submit" class="btn btn-primary btn-lg btn-block"><i class="fa fa-user-md"></i> Bayar</button>
+                        <button name="submit" id="btnBayar" type="submit" class="btn btn-primary btn-lg btn-block"> Bayar</button>
                     </div>
                 </div>
             </div>

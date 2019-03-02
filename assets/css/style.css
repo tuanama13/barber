@@ -20,8 +20,8 @@ button > span .menu-text{
 
 /*Small devices (landscape phones, 576px and up)*/
 @media (max-width: 576px) {
-	button > .button > .btn-img{
-		/*width: 150px;*/s
+	.carousel .carousel-item img {
+		height: 150px;
 	}
 
 	.btn-menu button{
@@ -40,7 +40,7 @@ button > span .menu-text{
 /*Medium devices (tablets, 768px and up)*/
 @media (max-width: 768px) {
 	.carousel .carousel-item img {
-		height: 350px;
+		height: 250px;
 	}
 
 	button > .button > .btn-img img{
